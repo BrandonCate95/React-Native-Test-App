@@ -1,7 +1,8 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import { Container, Content, Button, List, ListItem, Text, Icon, Left, Body, Right, View } from 'native-base'
+import { Container, Content, Button, List, Text, Icon, Left, Body, Right, View } from 'native-base'
 import getPlatformName from '../../utilities/getPlatformName'
+import ListItem from '../../components/ListItem'
 
 const styles = StyleSheet.create({
   UserContainer:{
@@ -42,103 +43,54 @@ export default class OptionsScreen extends React.Component {
 
             <List>
 
-              <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
-                <Left>
-                  <Button style={styles.ListItemButton}>
-                    <Icon active name={getPlatformName('notifications')} />
-                  </Button>
-                </Left>
-                <Body>
-                  <Text>Notifications</Text>
-                </Body>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-              </ListItem>
+              <ListItem 
+                listItemOnPress={() => this.props.navigation.navigate('Settings')}
+                nameLeftIcon={'notifications'}
+                text={'Notifications'}
+                nameRightIcon={'arrow-forward'}
+              />
 
-              <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
-                <Left>
-                  <Button style={styles.ListItemButton}>
-                    <Icon active name={getPlatformName('refresh')} />
-                  </Button>
-                </Left>
-                <Body>
-                  <Text>Payment History</Text>
-                </Body>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-              </ListItem>
+              <ListItem 
+                listItemOnPress={() => this.props.navigation.navigate('Settings')}
+                nameLeftIcon={'refresh'}
+                text={'Payment History'}
+                nameRightIcon={'arrow-forward'}
+              />
 
-              <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
-                <Left>
-                  <Button style={styles.ListItemButton}>
-                    <Icon active name={getPlatformName('gift')} />
-                  </Button>
-                </Left>
-                <Body>
-                  <Text>Promotions</Text>
-                </Body>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-              </ListItem>
+              <ListItem 
+                listItemOnPress={() => this.props.navigation.navigate('Settings')}
+                nameLeftIcon={'gift'}
+                text={'Promotions'}
+                nameRightIcon={'arrow-forward'}
+              />
 
-              <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
-                <Left>
-                  <Button style={styles.ListItemButton}>
-                    <Icon active name={getPlatformName('settings')} />
-                  </Button>
-                </Left>
-                <Body>
-                  <Text>Settings</Text>
-                </Body>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-              </ListItem>
+              <ListItem 
+                listItemOnPress={() => this.props.navigation.navigate('Settings')}
+                nameLeftIcon={'settings'}
+                text={'Settings'}
+                nameRightIcon={'arrow-forward'}
+              />
 
-              <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
-                <Left>
-                  <Button style={styles.ListItemButton}>
-                    <Icon active name={getPlatformName('help-circle-outline')} />
-                  </Button>
-                </Left>
-                <Body>
-                  <Text>Help/Support</Text>
-                </Body>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-              </ListItem>
+              <ListItem 
+                listItemOnPress={() => this.props.navigation.navigate('Settings')}
+                nameLeftIcon={'help-circle-outline'}
+                text={'Help/Support'}
+                nameRightIcon={'arrow-forward'}
+              />
 
-              <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
-                <Left>
-                  <Button style={styles.ListItemButton}>
-                    <Icon active name={getPlatformName('information-circle-outline')} />
-                  </Button>
-                </Left>
-                <Body>
-                  <Text>Legal</Text>
-                </Body>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-              </ListItem>
+              <ListItem 
+                listItemOnPress={() => this.props.navigation.navigate('Settings')}
+                nameLeftIcon={'information-circle-outline'}
+                text={'Legal'}
+                nameRightIcon={'arrow-forward'}
+              />
 
-              <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
-                <Left>
-                  <Button style={styles.ListItemButton}>
-                    <Icon active name={getPlatformName('exit')} />
-                  </Button>
-                </Left>
-                <Body>
-                  <Text>Sign Out</Text>
-                </Body>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-              </ListItem>
+              <ListItem 
+                listItemOnPress={() => this.props.navigation.navigate('Settings')}
+                nameLeftIcon={'exit'}
+                text={'Sign Out'}
+                nameRightIcon={'arrow-forward'}
+              />
 
             </List>
           </Content>

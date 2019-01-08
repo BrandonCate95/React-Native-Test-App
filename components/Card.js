@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Image } from 'react-native'
 import { Icon, Button, Text, Card, CardItem, Thumbnail, Left, Body, Right } from 'native-base'
 
-const styles = StyleSheet.create({
+const defaultStyles = StyleSheet.create({
   bodyImage:{
     height: 200,
     width: null,
@@ -25,7 +25,7 @@ export default class CardCustom extends React.Component{
           </Left>
         </CardItem>
         <CardItem cardBody>
-          <Image source={{uri: bodyUri}} style={styles.bodyImage}/>
+          <Image source={{uri: bodyUri}} style={defaultStyles.bodyImage}/>
         </CardItem>
         <CardItem>
           <Left>
