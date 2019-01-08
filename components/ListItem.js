@@ -33,7 +33,7 @@ export default class ListItemCustom extends React.Component{
   }
 }
 
-ListItemCustom.PropTypes = {
+ListItemCustom.propTypes = {
     listItemOnPress: PropTypes.func, 
     nameLeftIcon: PropTypes.string, 
     text: PropTypes.string.isRequired, 

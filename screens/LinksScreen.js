@@ -1,10 +1,8 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Platform, Image } from 'react-native'
-import { Container, Header, Item, Input, Icon, Button, Text, Content, CardItem, Thumbnail, Left, Body, Right } from 'native-base'
+import { ScrollView, StyleSheet, Platform } from 'react-native'
+import { Container, Header, Item, Input, Icon, Button, Text, Content } from 'native-base'
 import getPlatformName from '../utilities/getPlatformName'
 import Card from '../components/Card'
-
-var ar = [1,2,3,4]
 
 const styles = StyleSheet.create({
   Header:{
@@ -23,7 +21,17 @@ export default class LinksScreen extends React.Component {
     header: null,
   };
 
+  state = {
+    Cards: []
+  }
+
+  componentDidMount = async () => {
+    //fake async get method
+    await this.setState({ Cards: [1,2,3,4] })
+  }
+
   render() {
+    const { Cards } = this.state
     return (
           <Container>
             <Header searchBar rounded style={styles.Header}>
@@ -40,7 +48,7 @@ export default class LinksScreen extends React.Component {
             </Header>
             <ScrollView>
               <Content>
-                {ar.map((num) =>
+                {Cards.map((num) =>
                   <Card 
                     key={num}
                     thumbnailUri={'https://nativebase.io/assets/img/front-page-icon.png'}

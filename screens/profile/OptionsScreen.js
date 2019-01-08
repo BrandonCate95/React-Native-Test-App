@@ -5,10 +5,20 @@ import getPlatformName from '../../utilities/getPlatformName'
 import ListItem from '../../components/ListItem'
 
 const styles = StyleSheet.create({
+  Container:{
+    flex: 1
+  },
+  Content:{
+    marginTop: 30
+  },
   UserContainer:{
     flex:1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  UserIcon:{
+    fontSize: 80, 
+    color: '#afafaf'
   },
   Username:{
     fontSize: 24,
@@ -26,15 +36,28 @@ export default class OptionsScreen extends React.Component {
     header: null,
   }
 
+  state = {
+    options: [
+      { navPage: 'Settings', nameLeftIcon: 'notifications', text: 'Notifications' },
+      { navPage: 'Settings', nameLeftIcon: 'refresh', text: 'Payment History' },
+      { navPage: 'Settings', nameLeftIcon: 'gift', text: 'Promotions' },
+      { navPage: 'Settings', nameLeftIcon: 'settings', text: 'Settings' },
+      { navPage: 'Settings', nameLeftIcon: 'help-circle-outline', text: 'Help/Support' },
+      { navPage: 'Settings', nameLeftIcon: 'information-circle-outline', text: 'Legal' },
+      { navPage: 'Settings', nameLeftIcon: 'exit', text: 'Sign Out' },
+    ]
+  }
+
   render() {
+    const { options } = this.state
     return(
-        <Container style={{ flex: 1 }}>
-          <Content style={{marginTop: 30}}>
+        <Container style={styles.Container}>
+          <Content style={styles.Content}>
 
             <View style={styles.UserContainer}>
               <Icon 
                 name={getPlatformName('contact')} 
-                style={{fontSize: 80, color: '#afafaf'}}
+                style={styles.UserIcon}
               />
               <Text style={styles.Username}>Bobby Bouncer</Text>
             </View>
@@ -43,14 +66,19 @@ export default class OptionsScreen extends React.Component {
 
             <List>
 
-              <ListItem 
-                listItemOnPress={() => this.props.navigation.navigate('Settings')}
-                nameLeftIcon={'notifications'}
-                text={'Notifications'}
-                nameRightIcon={'arrow-forward'}
-              />
+              {options.map((item) => 
+                <ListItem
+                  key={item.text}
+                  listItemOnPress={() => this.props.navigation.navigate(item.navPage)}
+                  nameLeftIcon={item.nameLeftIcon}
+                  text={item.text}
+                  nameRightIcon={'arrow-forward'}
+                />
+              )}
 
-              <ListItem 
+              
+
+              {/* <ListItem 
                 listItemOnPress={() => this.props.navigation.navigate('Settings')}
                 nameLeftIcon={'refresh'}
                 text={'Payment History'}
@@ -90,7 +118,7 @@ export default class OptionsScreen extends React.Component {
                 nameLeftIcon={'exit'}
                 text={'Sign Out'}
                 nameRightIcon={'arrow-forward'}
-              />
+              /> */}
 
             </List>
           </Content>

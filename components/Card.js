@@ -47,7 +47,7 @@ export default class CardCustom extends React.Component{
   }
 }
 
-CardCustom.PropTypes = {
+CardCustom.propTypes = {
     thumbnailUri: PropTypes.string, 
     title: PropTypes.string.isRequired, 
     subTitle: PropTypes.string, 
