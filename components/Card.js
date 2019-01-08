@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { StyleSheet, Image } from 'react-native'
 import { Icon, Button, Text, Card, CardItem, Thumbnail, Left, Body, Right } from 'native-base'
 
@@ -44,4 +45,18 @@ export default class CardCustom extends React.Component{
       </Card>      
     )
   }
+}
+
+CardCustom.PropTypes = {
+    thumbnailUri: PropTypes.string, 
+    title: PropTypes.string.isRequired, 
+    subTitle: PropTypes.string, 
+    bodyUri: PropTypes.string.isRequired, 
+    numLikes: PropTypes.number, 
+    numComments: PropTypes.number
+}
+
+CardCustom.defaultProps = {
+    numLikes: 0,
+    numComments: 0
 }
