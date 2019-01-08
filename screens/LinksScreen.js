@@ -1,7 +1,8 @@
 import React from 'react'
 import { ScrollView, StyleSheet, Platform, Image } from 'react-native'
-import { Container, Header, Item, Input, Icon, Button, Text, Content, Card, CardItem, Thumbnail, Left, Body, Right } from 'native-base'
+import { Container, Header, Item, Input, Icon, Button, Text, Content, CardItem, Thumbnail, Left, Body, Right } from 'native-base'
 import getPlatformName from '../utilities/getPlatformName'
+import Card from '../components/Card'
 
 var ar = [1,2,3,4]
 
@@ -39,8 +40,18 @@ export default class LinksScreen extends React.Component {
             </Header>
             <ScrollView>
               <Content>
-                {ar.map((num) =>             
-                  <Card key={num}>
+                {ar.map((num) =>
+                  <Card 
+                    key={num}
+                    thumbnailUri={'https://nativebase.io/assets/img/front-page-icon.png'}
+                    title={'NativeBase'}
+                    subTitle={'GeekyAnts'}
+                    bodyUri={'https://4.bp.blogspot.com/_xl9E-bw7sMg/TM4F7-37b8I/AAAAAAAAAlo/sIQMOd0IpbU/s1600/inside+a+forest_negative.jpg'}
+                    numLikes={120}
+                    numComments={3}
+                  />  
+                )}         
+                  {/* <Card key={num}>
                     <CardItem>
                       <Left>
                         <Thumbnail source={{uri: 'https://nativebase.io/assets/img/front-page-icon.png'}} />
@@ -68,7 +79,7 @@ export default class LinksScreen extends React.Component {
                       </Right>
                     </CardItem>
                   </Card>
-                )}
+                )} */}
               </Content>
             </ScrollView>
           </Container> 

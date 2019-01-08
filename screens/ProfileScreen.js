@@ -1,7 +1,7 @@
 import React from 'react'
 import ProfileNavigator from '../navigation/ProfileNavigator'
 
-export default class SettingsScreen extends React.Component {
+export default class ProfileScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
