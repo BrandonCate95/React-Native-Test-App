@@ -1,9 +1,7 @@
 import React from 'react'
-import { Platform, StyleSheet } from 'react-native'
-import { Header, StyleProvider, Container, Content, Button, List, ListItem, Text, Icon, Left, Body, Right, View } from 'native-base'
-
-import getTheme from '../../native-base-theme/components'
-import custom from '../../native-base-theme/variables/Custom'
+import { StyleSheet } from 'react-native'
+import { Container, Content, Button, List, ListItem, Text, Icon, Left, Body, Right, View } from 'native-base'
+import getPlatformName from '../../utilities/getPlatformName'
 
 const styles = StyleSheet.create({
   UserContainer:{
@@ -19,26 +17,22 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginTop: 10,
     marginBottom: 10,
-  },
-  ListItemButton:{
-    // backgroundColor: "#FF9501",
   }
 })
 
 export default class OptionsScreen extends React.Component {
   static navigationOptions = {
     header: null,
-  };
+  }
 
   render() {
     return(
-      // <StyleProvider style={{...getTheme(custom)}}>
         <Container style={{ flex: 1 }}>
           <Content style={{marginTop: 30}}>
 
             <View style={styles.UserContainer}>
               <Icon 
-                name={Platform.OS === 'ios' ? 'ios-contact' : 'md-contact'} 
+                name={getPlatformName('contact')} 
                 style={{fontSize: 80, color: '#afafaf'}}
               />
               <Text style={styles.Username}>Bobby Bouncer</Text>
@@ -51,7 +45,7 @@ export default class OptionsScreen extends React.Component {
               <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
                 <Left>
                   <Button style={styles.ListItemButton}>
-                    <Icon active name={Platform.OS === 'ios' ? 'ios-notifications' : 'md-notifications'} />
+                    <Icon active name={getPlatformName('notifications')} />
                   </Button>
                 </Left>
                 <Body>
@@ -65,7 +59,7 @@ export default class OptionsScreen extends React.Component {
               <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
                 <Left>
                   <Button style={styles.ListItemButton}>
-                    <Icon active name={Platform.OS === 'ios' ? 'ios-refresh' : 'md-refresh'} />
+                    <Icon active name={getPlatformName('refresh')} />
                   </Button>
                 </Left>
                 <Body>
@@ -79,7 +73,7 @@ export default class OptionsScreen extends React.Component {
               <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
                 <Left>
                   <Button style={styles.ListItemButton}>
-                    <Icon active name={Platform.OS === 'ios' ? 'ios-gift' : 'md-gift'} />
+                    <Icon active name={getPlatformName('gift')} />
                   </Button>
                 </Left>
                 <Body>
@@ -93,7 +87,7 @@ export default class OptionsScreen extends React.Component {
               <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
                 <Left>
                   <Button style={styles.ListItemButton}>
-                    <Icon active name={Platform.OS === 'ios' ? 'ios-settings' : 'md-settings'} />
+                    <Icon active name={getPlatformName('settings')} />
                   </Button>
                 </Left>
                 <Body>
@@ -107,7 +101,7 @@ export default class OptionsScreen extends React.Component {
               <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
                 <Left>
                   <Button style={styles.ListItemButton}>
-                    <Icon active name={Platform.OS === 'ios' ? 'ios-help-circle-outline' : 'md-help-circle-outline'} />
+                    <Icon active name={getPlatformName('help-circle-outline')} />
                   </Button>
                 </Left>
                 <Body>
@@ -121,7 +115,7 @@ export default class OptionsScreen extends React.Component {
               <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
                 <Left>
                   <Button style={styles.ListItemButton}>
-                    <Icon active name={Platform.OS === 'ios' ? 'ios-information-circle-outline' : 'md-information-circle-outline'} />
+                    <Icon active name={getPlatformName('information-circle-outline')} />
                   </Button>
                 </Left>
                 <Body>
@@ -135,7 +129,7 @@ export default class OptionsScreen extends React.Component {
               <ListItem icon onPress={() => this.props.navigation.navigate('Settings')}>
                 <Left>
                   <Button style={styles.ListItemButton}>
-                    <Icon active name={Platform.OS === 'ios' ? 'ios-exit' : 'md-exit'} />
+                    <Icon active name={getPlatformName('exit')} />
                   </Button>
                 </Left>
                 <Body>
@@ -149,7 +143,6 @@ export default class OptionsScreen extends React.Component {
             </List>
           </Content>
         </Container>
-      // </StyleProvider>
     )
   }
 }

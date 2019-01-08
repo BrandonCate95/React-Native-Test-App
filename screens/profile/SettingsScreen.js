@@ -1,10 +1,18 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from 'react'
+import { StyleSheet, View, Text } from 'react-native'
+
+const styles = StyleSheet.create({
+    Container:{
+      flex:1,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+  })
 
 export default class SettingsScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.Container}>
         <Text>Settings Screen</Text>
       </View>
     );

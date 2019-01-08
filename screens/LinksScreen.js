@@ -1,11 +1,21 @@
-import React from 'react';
-import { ScrollView, StyleSheet, Platform, Image } from 'react-native';
-import { StyleProvider, Container, Header, Item, Input, Icon, Button, Text, Content, Card, CardItem, Thumbnail, Left, Body, Right } from 'native-base';
-
-import getTheme from '../native-base-theme/components'
-import custom from '../native-base-theme/variables/Custom'
+import React from 'react'
+import { ScrollView, StyleSheet, Platform, Image } from 'react-native'
+import { Container, Header, Item, Input, Icon, Button, Text, Content, Card, CardItem, Thumbnail, Left, Body, Right } from 'native-base'
+import getPlatformName from '../utilities/getPlatformName'
 
 var ar = [1,2,3,4]
+
+const styles = StyleSheet.create({
+  Header:{
+    backgroundColor: '#efefef',
+    marginTop: 15,
+  },
+  container: {
+    flex: 1,
+    paddingTop: 15,
+    backgroundColor: '#fff',
+  },
+});
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
@@ -15,11 +25,11 @@ export default class LinksScreen extends React.Component {
   render() {
     return (
           <Container>
-            <Header searchBar rounded style={{backgroundColor: '#efefef', marginTop: 15}}>
+            <Header searchBar rounded style={styles.Header}>
               <Item>
-                <Icon name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'} />
+                <Icon name={getPlatformName('search')} />
                 <Input placeholder="Search" />
-                <Icon name={Platform.OS === 'ios' ? 'ios-people' : 'md-people'} />
+                <Icon name={getPlatformName('people')} />
               </Item>
               {Platform.OS === 'ios' &&
                 <Button transparent>
@@ -62,14 +72,6 @@ export default class LinksScreen extends React.Component {
               </Content>
             </ScrollView>
           </Container> 
-    );
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
