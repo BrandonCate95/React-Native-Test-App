@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Image,
   Platform,
@@ -7,10 +7,11 @@ import {
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
-import { WebBrowser } from 'expo';
+} from 'react-native'
+import { Button } from 'native-base'
+import { WebBrowser } from 'expo'
 
-import { MonoText } from '../components/StyledText';
+import { MonoText } from '../components/StyledText'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -18,6 +19,7 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
+    const { count, addCount, subtractCount } = this.props
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -44,13 +46,35 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.getStartedText}>
               Change this text and your app will automatically reload.
             </Text>
+
+            <View style={{flex: 1, flexDirection: 'row'}}>
+
+              <Button 
+                style={{width: 60, flex: 1, alignItems: 'center', justifyContent: 'center', margin: 5}}
+                onPress={addCount}
+              >
+                <Text>+1</Text>
+              </Button>
+
+              <Button 
+                style={{width: 60, flex: 1, alignItems: 'center', justifyContent: 'center', margin: 5}}
+                onPress={subtractCount}
+              >
+                <Text>-1</Text>
+              </Button>
+
+            </View>
+            
           </View>
 
           <View style={styles.helpContainer}>
             <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
+              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload {count}</Text>
             </TouchableOpacity>
           </View>
+
+
+
         </ScrollView>
       </View>
     );
