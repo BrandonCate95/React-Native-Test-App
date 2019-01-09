@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon'
 import HomeScreen from '../containers/HomeScreen'
 import LinksScreen from '../screens/LinksScreen'
 import ProfileScreen from '../screens/ProfileScreen'
+import LoginScreen from '../screens/LoginScreen'
 
 const styles = StyleSheet.create({
   TabBar: {
@@ -67,11 +68,27 @@ ProfileStack.navigationOptions = {
   ),
 };
 
+const LoginStack = createStackNavigator({
+  Login: LoginScreen,
+});
+
+LoginStack.navigationOptions = {
+  tabBarLabel: 'Login',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      style={styles.TabBarIcon}
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-person' : 'md-person'}
+    />
+  ),
+};
+
 export default createBottomTabNavigator(
   {
     HomeStack,
+    LoginStack,
     LinksStack,
-    ProfileStack,
+    ProfileStack
   },
   {
     tabBarOptions: {
