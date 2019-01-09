@@ -1,11 +1,24 @@
 import React from 'react'
-import { Platform } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation'
 
 import TabBarIcon from '../components/TabBarIcon'
 import HomeScreen from '../containers/HomeScreen'
 import LinksScreen from '../screens/LinksScreen'
 import ProfileScreen from '../screens/ProfileScreen'
+
+const styles = StyleSheet.create({
+  TabBar: {
+    position: "absolute",
+    bottom: 0,
+    flex: 1,
+    width: '100%',
+    borderTopColor: "transparent",
+    backgroundColor: "rgba(0,0,0,0)",
+    marginBottom: 3
+  },
+  TabBarIcon: {}
+})
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -15,6 +28,7 @@ HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
+      style={styles.TabBarIcon}
       focused={focused}
       name={
         Platform.OS === 'ios' ? 'ios-home' : 'md-home'
@@ -31,6 +45,7 @@ LinksStack.navigationOptions = {
   tabBarLabel: 'Explore',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
+      style={styles.TabBarIcon}
       focused={focused}
       name={Platform.OS === 'ios' ? 'ios-beer' : 'md-beer'}
     />
@@ -45,6 +60,7 @@ ProfileStack.navigationOptions = {
   tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
+      style={styles.TabBarIcon}
       focused={focused}
       name={Platform.OS === 'ios' ? 'ios-person' : 'md-person'}
     />
@@ -59,11 +75,7 @@ export default createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      style: {
-        borderTopColor: "transparent",
-        backgroundColor: "transparent",
-        marginBottom: 3,
-      },
+      style: styles.TabBar
     }
   }
 );
