@@ -45,26 +45,29 @@ export default class HomeScreen extends React.Component {
 
             <Text style={styles.getStartedText}>
               Change this text and your app will automatically reload.
+
+                TODO: SignInScreen, SignUpScreen, ForgotPasswordScreen, ChangePasswordScreen, VerifyCodeScreen (2factor authentification? whats this one Brandon?)
+
             </Text>
 
-            <View style={{flex: 1, flexDirection: 'row'}}>
+            <View style={{ flex: 1, flexDirection: 'row' }}>
 
-              <Button 
-                style={{width: 60, flex: 1, alignItems: 'center', justifyContent: 'center', margin: 5}}
+              <Button
+                style={{ width: 60, flex: 1, alignItems: 'center', justifyContent: 'center', margin: 5 }}
                 onPress={addCount}
               >
                 <Text>+1</Text>
               </Button>
 
-              <Button 
-                style={{width: 60, flex: 1, alignItems: 'center', justifyContent: 'center', margin: 5}}
+              <Button
+                style={{ width: 60, flex: 1, alignItems: 'center', justifyContent: 'center', margin: 5 }}
                 onPress={subtractCount}
               >
                 <Text>-1</Text>
               </Button>
 
             </View>
-            
+
           </View>
 
           <View style={styles.helpContainer}>
