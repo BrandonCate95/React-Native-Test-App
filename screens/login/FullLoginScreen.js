@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Dimensions, TouchableOpacity } from 'react-native'
 import bgImage from '../../assets/images/bgImage2.png'
 import logo from '../../assets/images/badLOGO.png'
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons' //USE REACT BASE INSTEAD
 
 const { width: WIDTH } = Dimensions.get('window')
 
@@ -21,6 +21,7 @@ export default class LoginScreen extends React.Component {
         header: null,
     };
 
+ //REFACTOR TO USE REDUX? GRAPHQL? WHAT WE DOIN FAM?
 
     showPassword = () => {
         if (this.state.pressed == false) {
@@ -69,7 +70,7 @@ export default class LoginScreen extends React.Component {
                     <Text style={styles.text}>Login</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.forgotPasswordButton}>
+                <TouchableOpacity style={styles.forgotPasswordButton} onPress={() => this.props.navigation.navigate('ForgotPassword')}>
                     <Text> Forgot Password?</Text>
                 </TouchableOpacity>
 

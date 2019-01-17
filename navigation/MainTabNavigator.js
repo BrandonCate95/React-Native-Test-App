@@ -7,6 +7,7 @@ import HomeScreen from '../containers/HomeScreen'
 import LinksScreen from '../screens/LinksScreen'
 import ProfileScreen from '../screens/ProfileScreen'
 import LoginScreen from '../screens/LoginScreen'
+import ForgotPasswordScreen from '../screens/login/ForgotPasswordScreen'
 
 const styles = StyleSheet.create({
   TabBar: {
@@ -70,6 +71,7 @@ ProfileStack.navigationOptions = {
 
 const LoginStack = createStackNavigator({
   Login: LoginScreen,
+  Password: ForgotPasswordScreen,
 });
 
 LoginStack.navigationOptions = {

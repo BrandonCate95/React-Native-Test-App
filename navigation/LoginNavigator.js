@@ -1,13 +1,14 @@
 import React from 'react'
-import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Dimensions, TouchableOpacity } from 'react-native'
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import FullLoginScreen from '../screens/login/FullLoginScreen'
 import ForgotPasswordScreen from '../screens/login/ForgotPasswordScreen'
+import ResetedPasswordScreen from '../screens/login/ResetedPasswordScreen'
 
 const RootStack = createStackNavigator(
     {
         Login: FullLoginScreen,
         ForgotPassword: ForgotPasswordScreen,
+        ResetedPassword: ResetedPasswordScreen,
     },
     {
         initialRouteName: 'Login',
